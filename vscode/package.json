@@ -1,0 +1,39 @@
+{
+  "name": "cosmic-monochromeday-theme",
+  "displayName": "Cosmic Monochrome Day",
+  "description": "Colour theme from the COSMIC Monochrome Day rice, syntax as in its Neovim scheme.",
+  "version": "1.0.0",
+  "publisher": "atraxsrc",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#E6E6E6",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atraxsrc/cosmic-monochromeday-theme"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "cosmic",
+    "monochromeday",
+    "cursor"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Cosmic Monochrome Day",
+        "uiTheme": "vs",
+        "path": "./themes/cosmic-monochromeday-color-theme.json"
+      }
+    ]
+  }
+}
