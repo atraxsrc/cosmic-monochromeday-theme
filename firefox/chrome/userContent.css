@@ -1,0 +1,68 @@
+/* ==========================================================================
+   Monochrome Day - userContent.css
+   Ported from the DarkGold baseline, recoloured for the COSMIC Monochrome Day
+   palette (dark, pure greyscale)
+
+   New tab / home / private pages only:
+     - grey accent, focus and link colours
+     - grey focus ring on shortcut tiles, grey personalize button
+     - shortcut artwork hidden (tiles stay, icons go blank)
+   No size / position changes.
+
+   Install:  chrome/userContent.css   (same pref + restart as userChrome.css)
+   ========================================================================== */
+
+@-moz-document url-prefix("about:newtab"),
+               url-prefix("about:home"),
+               url-prefix("about:privatebrowsing") {
+
+  :root {
+    --newtab-primary-action-background: #5C5C5C !important;
+    --newtab-primary-action-background-dimmed: rgba(92, 92, 92, 0.25) !important;
+
+    --color-accent-primary: #5C5C5C !important;
+    --color-accent-primary-hover: #515151 !important;
+    --color-accent-primary-active: #515151 !important;
+
+    --newtab-focus-border: #5C5C5C !important;
+    --newtab-focus-outline: #5C5C5C !important;
+    --newtab-textbox-focus-color: #5C5C5C !important;
+
+    --in-content-accent-color: #5C5C5C !important;
+    --in-content-accent-color-active: #515151 !important;
+    --in-content-focus-outline-color: #5C5C5C !important;
+
+    --link-color: #1A1A1A !important;
+    --link-color-hover: #424242 !important;
+
+    --focus-outline-color: #5C5C5C !important;
+    --focus-outline: 2px solid #5C5C5C !important;
+    --newtab-button-focus-border: #5C5C5C !important;
+    --button-background-color: #5C5C5C !important;
+    --button-text-color: #E6E6E6 !important;
+  }
+
+  .top-site-outer:is(:focus, :focus-visible, .active) .tile,
+  .top-site-outer .top-site-button:focus .tile,
+  .top-site-outer .top-site-button:focus-visible .tile {
+    outline: 2px solid #5C5C5C !important;
+    border-color: #5C5C5C !important;
+  }
+
+  .personalize-button {
+    background-color: #5C5C5C !important;
+    color: #E6E6E6 !important;
+  }
+
+  /* Hide shortcut artwork so tiles stay blank */
+  .top-site-icon,
+  .top-site-icon.rich-icon,
+  .top-site-icon.default-icon,
+  .screenshot,
+  .screenshot.active,
+  .letter-fallback {
+    background-image: none !important;
+    background-color: transparent !important;
+    opacity: 0 !important;
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "manifest_version": 2,
+  "name": "Cosmic Monochrome Day",
+  "version": "1.1",
+  "description": "Pure greyscale light theme from the COSMIC Monochrome Day rice: grey icons, one dark accent.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{8e913212-ec73-5535-be63-5d42f5f2df9d}"
+    }
+  },
+  "icons": {
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "64": "icons/icon-64.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "theme": {
+    "colors": {
+      "toolbar": "#f1f1f1",
+      "toolbar_text": "#515151",
+      "frame": "#E6E6E6",
+      "tab_background_text": "#616161",
+      "toolbar_field": "#cfcfcf",
+      "toolbar_field_text": "#515151",
+      "toolbar_field_border_focus": "#424242",
+      "toolbar_field_highlight": "#424242",
+      "toolbar_field_highlight_text": "#E6E6E6",
+      "tab_line": "#424242",
+      "popup": "#f1f1f1",
+      "popup_text": "#515151",
+      "button_background_active": "#424242",
+      "button_background_hover": "#cfcfcf",
+      "frame_inactive": "#E6E6E6",
+      "icons_attention": "#424242",
+      "icons": "#5c5c5c",
+      "ntp_background": "#E6E6E6",
+      "ntp_text": "#515151",
+      "popup_border": "#616161",
+      "popup_highlight_text": "#E6E6E6",
+      "popup_highlight": "#424242",
+      "sidebar_border": "#cfcfcf",
+      "sidebar_highlight_text": "#E6E6E6",
+      "sidebar_highlight": "#424242",
+      "sidebar_text": "#515151",
+      "tab_loading": "#424242"
+    }
+  }
+}
