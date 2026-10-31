@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install the cosmic-monochromeday theme for Claude Desktop (the unofficial
+# Install the cosmic-monochrome theme for Claude Desktop (the unofficial
 # claude-desktop-extra Linux build) into its themes.d drop-in folder.
 # Backs up a different existing copy. Never deletes.
 set -euo pipefail

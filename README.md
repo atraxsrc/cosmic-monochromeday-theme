@@ -4,7 +4,8 @@
 
 ![Monochrome Day palette](assets/palette.png)
 
-Pop!_OS 24.04 on COSMIC in grays only: desktop, terminal, shell, Firefox, Brave, cursor.
+Pop!_OS 24.04 on COSMIC in grays only: desktop, terminal, shell, Firefox, Brave, cursor. The light half of a pair;
+the dark half is [cosmic-monochrome-theme](https://github.com/atraxsrc/cosmic-monochrome-theme).
 
 ![Pop!_OS](https://img.shields.io/badge/Pop!_OS-24.04_LTS-5c5c5c?style=for-the-badge&logo=popos&logoColor=white)
 ![COSMIC](https://img.shields.io/badge/COSMIC-1.0.0-1a1a1a?style=for-the-badge)
@@ -32,6 +33,14 @@ The light mirror of the monochrome dark slots in
 | Border | ![#1a1a1a](https://placehold.co/12x12/1a1a1a/1a1a1a.png) Edge | ![#1a1a1a](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1a1a1a` |
 | Success | ![#515151](https://placehold.co/12x12/515151/515151.png) High | ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` |
 | Error | ![#424242](https://placehold.co/12x12/424242/424242.png) Higher | ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242` |
+
+| Role | Monochrome Day | Monochrome |
+|------|---|---|
+| Background | ![#E6E6E6](https://placehold.co/12x12/e6e6e6/e6e6e6.png) `#E6E6E6` | ![#111111](https://placehold.co/12x12/111111/111111.png) `#111111` |
+| Text | ![#1A1A1A](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1A1A1A` | ![#BDBDBD](https://placehold.co/12x12/bdbdbd/bdbdbd.png) `#BDBDBD` |
+| Accent | ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` | ![#AAAAAA](https://placehold.co/12x12/aaaaaa/aaaaaa.png) `#AAAAAA` |
+| Success | ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` | ![#CCCCCC](https://placehold.co/12x12/cccccc/cccccc.png) `#CCCCCC` |
+| Error | ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242` | ![#DDDDDD](https://placehold.co/12x12/dddddd/dddddd.png) `#DDDDDD` |
 
 There is no hue. Status colours are darker grays, not green / red.
 
@@ -90,7 +99,7 @@ There is no hue. Status colours are darker grays, not green / red.
 │   ├── cosmic-monochromeday.tdesktop-theme  # built theme, open this in Telegram
 │   └── build.sh                 # rebuilds it, optionally with a wallpaper
 ├── vscode
-│   ├── themes/                  # Cursor / VS Code colour theme
+│   ├── themes/                  # Cursor / VS Code colour themes, Monochrome (dark) + Monochrome Day (light)
 │   ├── package.json             # extension manifest
 │   ├── install.sh               # packs a .vsix, installs it with cursor --install-extension
 │   └── README.md
@@ -123,6 +132,11 @@ applets and system UI (maximized apps stay solid), and corners are squared
 Appearance → Style → Frosted glass after import; those sliders survive a theme switch.
 
 Export from Appearance if you tweak backgrounds / tints so you do not lose them.
+
+Pairing tip: import `Monochrome.ron` from
+[cosmic-monochrome-theme](https://github.com/atraxsrc/cosmic-monochrome-theme) into the
+Dark slot and COSMIC's Dark / Light toggle flips between the two. Wallpaper,
+Firefox and the shell layer do not follow the toggle; those are per-rice files.
 
 ### Baseline settings
 
@@ -202,8 +216,8 @@ packing a `.crx`: [`brave/README.md`](brave/README.md).
 
 For the unofficial [claude-desktop-extra](https://github.com/patrickjaja/claude-desktop-extra)
 Linux build. `claude-desktop/cosmic-monochrome.jsonc` is one theme with both halves:
-Monochrome Day in dark mode and the same greys mirrored in light mode,
-so Claude's own Settings → Appearance toggle keeps working.
+Monochrome in dark mode and Monochrome Day in light mode, so Claude's own
+Settings → Appearance toggle switches between the two rices.
 Colours come from `cosmic/*.ron`, contrast-checked (text and button text
 4.5:1, accents 3:1).
 
@@ -214,13 +228,18 @@ Colours come from `cosmic/*.ron`, contrast-checked (text and button text
 It copies the file into `~/.config/Claude/themes.d/`. Then press
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> in Claude Desktop and pick **cosmic-monochrome**.
 
+The same file ships in [`cosmic-monochrome-theme`](https://github.com/atraxsrc/cosmic-monochrome-theme),
+so installing from either repo gives the same theme.
+
 ---
 
 ## Cursor editor
 
-`vscode/` is a colour theme for [Cursor](https://cursor.com). It is a plain
-VS Code theme extension, so VS Code and VSCodium take it too. Code is coloured
-the way Neovim is in this rice; the workbench takes the desktop's window and
+`vscode/` is a colour theme extension for [Cursor](https://cursor.com) with
+both halves of the pair: **Cosmic Monochrome** and **Cosmic Monochrome Day**. It is a
+plain VS Code theme extension, so VS Code and VSCodium take it too, and the
+same extension ships in cosmic-monochrome-theme. Code is coloured the way Neovim is
+in this rice; the workbench takes the desktop's window and
 container colours, with the accent on the active tab, buttons and menu
 highlight, and the integrated terminal uses the COSMIC Terminal scheme. Cursor
 builds its Agent and chat panels from the same theme colours, so they follow
@@ -233,8 +252,9 @@ along.
 It packs `vscode/` into a `.vsix` and installs it with
 `cursor --install-extension`; run it again after editing the theme. Then press
 <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>T</kbd> in Cursor and pick
-**Cosmic Monochrome Day**. Colours and contrast notes:
-[`vscode/README.md`](vscode/README.md).
+**Cosmic Monochrome Day**. Three lines in Cursor's `settings.json` make it follow
+COSMIC's Dark / Light toggle between Monochrome and Monochrome Day; they, the colours and
+the contrast notes are in [`vscode/README.md`](vscode/README.md).
 
 ---
 
@@ -260,6 +280,9 @@ background is the plain window colour; to put a wallpaper behind the chat instea
 
 Built against Telegram Desktop 7.3.1. Calls, group calls, statistics charts and
 premium badges keep Telegram's own colours.
+
+Telegram has no dark / light pairing, so Monochrome, the dark half, ships its
+own theme.
 
 ---
 
@@ -501,6 +524,11 @@ The GUI steps it cannot do are printed at the end:
 
 Skip 1 and 2 when that slot already holds Monochrome Day. The first time on this rice,
 run [Setup](#setup) once for the fonts, icons and cursor.
+
+**Within the pair** (Monochrome Day ↔ [Monochrome](https://github.com/atraxsrc/cosmic-monochrome-theme)): the two halves
+sit side by side in COSMIC's Dark and Light slots and share one Claude Desktop
+theme, so after the first time only the Firefox add-on and the wallpaper are
+left by hand. Add `--keep-icons` to keep one icon colour across the pair.
 
 Monochrome Day has no light half, so every switch to or from it is a full one.
 

@@ -1,18 +1,18 @@
 {
-  "name": "cosmic-monochromeday-theme",
-  "displayName": "Cosmic Monochrome Day",
-  "description": "Colour theme from the COSMIC Monochrome Day rice, syntax as in its Neovim scheme.",
+  "name": "cosmic-monochrome-theme",
+  "displayName": "Cosmic Monochrome / Cosmic Monochrome Day",
+  "description": "Cosmic Monochrome (dark) and Cosmic Monochrome Day (light), the COSMIC rice pair, for Cursor and VS Code",
   "version": "1.0.0",
   "publisher": "atraxsrc",
   "license": "MIT",
   "icon": "icon.png",
   "galleryBanner": {
-    "color": "#E6E6E6",
+    "color": "#111111",
     "theme": "dark"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atraxsrc/cosmic-monochromeday-theme"
+    "url": "https://github.com/atraxsrc/cosmic-monochrome-theme"
   },
   "engines": {
     "vscode": "^1.70.0"
@@ -23,12 +23,19 @@
   "keywords": [
     "theme",
     "dark",
+    "light",
     "cosmic",
+    "monochrome",
     "monochromeday",
     "cursor"
   ],
   "contributes": {
     "themes": [
+      {
+        "label": "Cosmic Monochrome",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cosmic-monochrome-color-theme.json"
+      },
       {
         "label": "Cosmic Monochrome Day",
         "uiTheme": "vs",
