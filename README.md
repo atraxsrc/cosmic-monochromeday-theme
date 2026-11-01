@@ -57,6 +57,13 @@ There is no hue. Status colours are darker grays, not green / red.
 │   ├── screenshot.png           # README screenshot
 │   └── wallpaper.png            # the reaper on the bare desktop
 ├── backgrounds/                 # wallpapers, monochromeday-<subject>.png (see Icons and wallpaper)
+├── alacritty
+│   ├── monochromeday.toml       # Alacritty colour scheme
+│   └── install.sh
+├── bat
+│   ├── MonochromeDay.tmTheme    # bat syntax theme (delta uses it too)
+│   ├── config                   # --theme="MonochromeDay"
+│   └── install.sh
 ├── brave
 │   ├── theme                    # Chromium theme (manifest + icons), Load unpacked
 │   └── README.md
@@ -76,6 +83,21 @@ There is no hue. Status colours are darker grays, not green / red.
 │   ├── install.sh
 │   ├── uninstall.sh
 │   └── README.md
+├── delta
+│   ├── monochromeday.gitconfig  # delta (git pager) colours, [include] it from ~/.gitconfig
+│   └── install.sh
+├── discord
+│   ├── cosmic-monochrome.theme.css # Vencord / Vesktop theme, Monochrome (dark) + Monochrome Day (light)
+│   └── install.sh
+├── ghostty
+│   ├── MonochromeDay            # Ghostty theme
+│   └── install.sh
+├── gtk
+│   ├── monochromeday.css        # GTK 3 / 4 named colours for non-COSMIC apps
+│   └── install.sh
+├── helix
+│   ├── monochromeday.toml       # Helix theme
+│   └── install.sh
 ├── icons
 │   └── install.sh               # Cosmic-MonochromeDay icon pack from cosmic-icon-themes
 ├── fastfetch
@@ -89,11 +111,26 @@ There is no hue. Status colours are darker grays, not green / red.
 │   │   └── userContent.css      # new tab accents, blank tiles
 │   ├── install.sh
 │   └── README.md
+├── kitty
+│   ├── MonochromeDay.conf       # kitty colour scheme
+│   └── install.sh
+├── lazygit
+│   ├── monochromeday.yml        # lazygit colours only, stacked on your config.yml
+│   └── install.sh
 ├── lsd
 │   ├── config.yaml              # theme: custom
 │   ├── colors.yaml              # permission / size / date / git columns
 │   └── install.sh
 ├── nvim                         # Neovim colorscheme, LazyVim spec, RON syntax, install.sh
+├── obsidian
+│   ├── cosmic-monochrome.css    # CSS snippet, Monochrome (dark) + Monochrome Day (light)
+│   └── install.sh
+├── qt
+│   ├── MonochromeDay.conf       # qt5ct / qt6ct colour scheme
+│   └── install.sh
+├── starship
+│   ├── starship.toml            # prompt, palette colours, clock on the right
+│   └── install.sh
 ├── telegram
 │   ├── colors.tdesktop-theme    # Telegram Desktop colour scheme (source)
 │   ├── cosmic-monochromeday.tdesktop-theme  # built theme, open this in Telegram
@@ -106,8 +143,11 @@ There is no hue. Status colours are darker grays, not green / red.
 ├── scripts
 │   ├── update_system.sh         # nala + flatpak, monochromeday ANSI
 │   └── switch.sh                # make this the active rice (see Switching rice)
+├── wezterm
+│   ├── monochromeday.lua        # WezTerm colours, config.colors = require("monochromeday")
+│   └── install.sh
 ├── zsh
-│   ├── monochromeday.zsh           # LS_COLORS, highlighting colours, aliases, starship
+│   ├── monochromeday.zsh           # LS_COLORS, highlighting colours, aliases, starship, lazygit
 │   └── install.sh
 ├── docs
 │   └── showcase.md              # the rice describing itself, for the Postilla pane of the screenshot
@@ -313,11 +353,124 @@ Makes this the active rice, coming from any other `cosmic-*-theme` rice. See
 Need a [Nerd Font](https://www.nerdfonts.com/) in the terminal for the icons
 (Maple Mono NFM in the baseline above).
 
+### kitty, Alacritty, WezTerm, Ghostty
+
+The COSMIC Terminal scheme for other terminals, one file each with the same
+sixteen ANSI colours, text in ![#1A1A1A](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1A1A1A`, the cursor in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` and the
+selection on ![#C0C0C0](https://placehold.co/12x12/c0c0c0/c0c0c0.png) `#C0C0C0`. Each installer copies the file next to that terminal's
+config and backs up what it replaces; the one include line you add is
+printed, and is in the comment at the top of each file:
+
+```bash
+./kitty/install.sh        # ~/.config/kitty/themes/MonochromeDay.conf       kitty.conf:     include themes/MonochromeDay.conf
+./alacritty/install.sh    # ~/.config/alacritty/themes/monochromeday.toml   alacritty.toml: [general] import = ["~/.config/alacritty/themes/monochromeday.toml"]
+./wezterm/install.sh      # ~/.config/wezterm/monochromeday.lua             wezterm.lua:    config.colors = require("monochromeday")
+./ghostty/install.sh      # ~/.config/ghostty/themes/MonochromeDay          config:         theme = MonochromeDay
+```
+
+Ghostty and WezTerm can follow COSMIC's Dark / Light toggle once the Monochrome
+half is installed from its repo as well: `theme = dark:Monochrome,light:MonochromeDay` in
+Ghostty, and in WezTerm
+
+```lua
+local dark = (wezterm.gui and wezterm.gui.get_appearance() or "Dark"):find("Dark")
+config.colors = require(dark and "monochrome" or "monochromeday")
+```
+
+kitty and Alacritty have no such switch; include the other file instead.
+
+### starship
+
+`starship/starship.toml` is close to the defaults with the palette declared
+once as `[palettes.monochromeday]` and used by name: the directory in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`,
+the branch in ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151`, ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` for a dirty tree, a ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` prompt
+character that turns ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242` after a failed command, a dim `HH:MM` clock on
+the right. Modules it does not style keep their defaults, which use the ANSI
+slots the COSMIC Terminal scheme colours. `zsh/monochromeday.zsh` already runs
+`starship init`. `install.sh` backs up any existing `~/.config/starship.toml`
+to `starship.toml.bak`.
+
+```bash
+./starship/install.sh
+```
+
+### bat
+
+`bat/MonochromeDay.tmTheme` is a syntax theme coloured the way Neovim is in this
+rice: keywords in ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242`, strings in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, functions in ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151`, numbers
+in ![#1A1A1A](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1A1A1A`, types in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, imports and escapes in ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242`, italic
+comments in ![#818181](https://placehold.co/12x12/818181/818181.png) `#818181`, on the editor background ![#E6E6E6](https://placehold.co/12x12/e6e6e6/e6e6e6.png) `#E6E6E6`. `zsh/monochromeday.zsh`
+aliases `cat` to bat. `install.sh` copies the theme to `~/.config/bat/themes/`,
+rebuilds bat's cache so bat and delta can find it, and sets `--theme="MonochromeDay"`
+in `~/.config/bat/config` (backup in `config.bak`).
+
+```bash
+./bat/install.sh
+batcat README.md
+```
+
+### delta
+
+`delta/monochromeday.gitconfig` colours [delta](https://github.com/dandavison/delta),
+the git diff pager: removed lines in ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242` and added lines in
+![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` on the container ![#F1F1F1](https://placehold.co/12x12/f1f1f1/f1f1f1.png) `#F1F1F1`, changed words on a solid block of
+those two colours with ![#E6E6E6](https://placehold.co/12x12/e6e6e6/e6e6e6.png) `#E6E6E6` text, the same as Neovim's diff highlights;
+file names in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, commit hashes in ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151`, hunk headers in
+![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` inside ![#C0C0C0](https://placehold.co/12x12/c0c0c0/c0c0c0.png) `#C0C0C0` boxes, line numbers. Code inside the diff
+uses the bat theme above, so install that first. `install.sh` copies the file
+to `~/.config/delta/` and prints the `[include]` to add to `~/.gitconfig`; it
+never edits that file.
+
+```bash
+./delta/install.sh
+```
+
+```ini
+# ~/.gitconfig
+[include]
+    path = ~/.config/delta/monochromeday.gitconfig
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+```
+
+### lazygit
+
+`lazygit/monochromeday.yml` holds only the `gui.theme` block: active border in
+![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, inactive borders in ![#C0C0C0](https://placehold.co/12x12/c0c0c0/c0c0c0.png) `#C0C0C0`, the selected line on ![#DBDBDB](https://placehold.co/12x12/dbdbdb/dbdbdb.png) `#DBDBDB`,
+![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` and ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` marks for cherry-picked and base commits,
+unstaged changes in ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242`, author names in ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151`. lazygit reads one
+config file, so instead of replacing your `~/.config/lazygit/config.yml` the
+installer drops the theme beside it and `zsh/monochromeday.zsh` sets `LG_CONFIG_FILE`
+to both, your file first, so the colours win and your keybindings stay.
+
+```bash
+./lazygit/install.sh
+exec zsh
+```
+
+Without the zsh layer, export it yourself:
+`LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/monochromeday.yml"`.
+
+### Helix
+
+`helix/monochromeday.toml` is the Neovim colorscheme for [Helix](https://helix-editor.com/):
+same syntax roles, editor on ![#E6E6E6](https://placehold.co/12x12/e6e6e6/e6e6e6.png) `#E6E6E6`, status line and popups on ![#F1F1F1](https://placehold.co/12x12/f1f1f1/f1f1f1.png) `#F1F1F1`,
+cursor and current line number in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, the mode shown as a solid
+![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` / ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` / ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` block. `install.sh` copies it to
+`~/.config/helix/themes/`.
+
+```bash
+./helix/install.sh
+# ~/.config/helix/config.toml:  theme = "monochromeday"
+```
+
 ### zsh
 
 `zsh/monochromeday.zsh` is the rice part of the shell only: `LS_COLORS` (also
 used by lsd for file names and by the completion menu), gray colours for
-zsh-autosuggestions and zsh-syntax-highlighting, lsd / bat / nvim aliases and
+zsh-autosuggestions and zsh-syntax-highlighting, lsd / bat / nvim aliases, the lazygit theme file and
 the starship prompt. With no hue, bold / italic / underline tell file types
 and errors apart. Your own `~/.zshrc` stays private and sources it.
 
@@ -382,6 +535,90 @@ mkdir -p ~/.config/btop/themes
 cp btop/MonochromeDay.theme ~/.config/btop/themes/
 # btop → Esc → Options → Color theme → Monochrome Day
 ```
+
+---
+
+## GTK and Qt apps
+
+COSMIC colours GTK apps itself when Appearance → **Apply theme to GNOME apps**
+is on (the baseline config turns it on). `gtk/monochromeday.css` is the same palette
+pinned by hand for GTK 3 and GTK 4 / libadwaita apps: windows and lists on
+![#E6E6E6](https://placehold.co/12x12/e6e6e6/e6e6e6.png) `#E6E6E6`, cards, popovers and dialogs on ![#F1F1F1](https://placehold.co/12x12/f1f1f1/f1f1f1.png) `#F1F1F1`, text in ![#1A1A1A](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1A1A1A`, selection
+and accent in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` with ![#E6E6E6](https://placehold.co/12x12/e6e6e6/e6e6e6.png) `#E6E6E6` text on it, ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` for
+success and ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` for warnings. It only sets the named colours, so
+widgets keep their stock shapes, and it also works where COSMIC's toggle does
+not reach (another desktop, Flatpak apps given access to `~/.config/gtk-4.0`).
+
+```bash
+./gtk/install.sh
+```
+
+It copies the file to `~/.config/gtk-3.0/` and `~/.config/gtk-4.0/` and adds
+`@import url("monochromeday.css");` to `gtk.css` there, after COSMIC's own import so
+these colours win (backup in `gtk.css.bak`); another rice's import is
+commented out. Restart GTK apps.
+
+`qt/MonochromeDay.conf` is a colour scheme for [qt5ct](https://github.com/desktop-app/qt5ct)
+/ [qt6ct](https://github.com/trialuser02/qt6ct): windows on ![#E6E6E6](https://placehold.co/12x12/e6e6e6/e6e6e6.png) `#E6E6E6`, text
+fields and lists on ![#F1F1F1](https://placehold.co/12x12/f1f1f1/f1f1f1.png) `#F1F1F1`, buttons and tooltips on ![#F1F1F1](https://placehold.co/12x12/f1f1f1/f1f1f1.png) `#F1F1F1`, text in
+![#1A1A1A](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1A1A1A`, ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` for the highlight and links, placeholders in ![#616161](https://placehold.co/12x12/616161/616161.png) `#616161`,
+disabled text in ![#818181](https://placehold.co/12x12/818181/818181.png) `#818181`.
+
+```bash
+./qt/install.sh
+# qt6ct → Appearance → Color scheme → MonochromeDay, Palette: Custom → Apply
+```
+
+Qt apps read it with `QT_QPA_PLATFORMTHEME=qt6ct` (or `qt5ct`) in the
+environment; `~/.config/environment.d/` or your `~/.zshrc` is the place.
+
+Text and secondary text read at 4.8:1 or better on the window, container and
+field colours; disabled, placeholder and dim text, like comments elsewhere in
+the rice, at 3.1:1.
+
+---
+
+## Obsidian
+
+`obsidian/cosmic-monochrome.css` is a CSS snippet with both halves of the pair:
+Monochrome in dark mode, Monochrome Day in light mode, so with Settings →
+Appearance → Base color scheme → **Adapt to system** Obsidian follows COSMIC's
+Dark / Light toggle. Editor on ![#E6E6E6](https://placehold.co/12x12/e6e6e6/e6e6e6.png) `#E6E6E6`, sidebars on ![#F1F1F1](https://placehold.co/12x12/f1f1f1/f1f1f1.png) `#F1F1F1`, text in ![#1A1A1A](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1A1A1A`,
+links and accent in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, headings coloured like Neovim's
+(![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` / ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` / ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`), code and checkboxes in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, tags
+in ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151`. The same file ships in cosmic-monochrome-theme.
+
+```bash
+./obsidian/install.sh ~/path/to/vault
+# Settings → Appearance → CSS snippets → cosmic-monochrome
+```
+
+It copies the file into the vault's `.obsidian/snippets/`. Snippets are per
+vault, so run it once per vault.
+
+---
+
+## Discord
+
+`discord/cosmic-monochrome.theme.css` is a theme for [Vencord](https://vencord.dev/)
+and [Vesktop](https://github.com/Vencord/Vesktop), colours only: chat on
+![#E6E6E6](https://placehold.co/12x12/e6e6e6/e6e6e6.png) `#E6E6E6`, sidebars and inputs on ![#F1F1F1](https://placehold.co/12x12/f1f1f1/f1f1f1.png) `#F1F1F1`, server list on ![#DBDBDB](https://placehold.co/12x12/dbdbdb/dbdbdb.png) `#DBDBDB`, text in
+![#1A1A1A](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1A1A1A`, channel names in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, accent, mentions and links in
+![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` for online and positive, ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` for
+warnings. The light half is Monochrome Day and the dark half Monochrome, so
+with Appearance → Theme → **Sync with computer** it follows COSMIC's toggle.
+The same file ships in cosmic-monochrome-theme.
+
+```bash
+./discord/install.sh
+# Settings → Vencord → Themes → Cosmic Monochrome
+```
+
+It copies the file into `~/.config/Vencord/themes/` and
+`~/.config/vesktop/themes/`, whichever exist. Discord renames its CSS
+variables now and then; the file sets both the long-standing names and the
+2025 `--bg-*` set. Text on the surfaces is 4.8:1 or better; the text on
+Discord's own accent-coloured buttons stays its white, at 6.7:1.
 
 ---
 
@@ -472,6 +709,26 @@ cd cosmic-monochromeday-theme
 ./nvim/install.sh
 mkdir -p ~/.config/btop/themes && cp btop/MonochromeDay.theme ~/.config/btop/themes/
 
+./starship/install.sh
+./bat/install.sh
+./delta/install.sh          # then the [include] it prints, in ~/.gitconfig
+./lazygit/install.sh
+./helix/install.sh          # then theme = "monochromeday" in helix/config.toml
+
+# other terminals, one include line each (see Terminal extras above)
+./kitty/install.sh
+./alacritty/install.sh
+./wezterm/install.sh
+./ghostty/install.sh
+
+# gtk + qt apps (see GTK and Qt apps above)
+./gtk/install.sh
+./qt/install.sh             # then qt6ct → Color scheme → MonochromeDay
+
+# obsidian + discord, both halves in one file (see above)
+./obsidian/install.sh ~/path/to/vault
+./discord/install.sh
+
 # wallpaper
 # Settings → Wallpaper → Add image → a file from backgrounds/ (see Icons and wallpaper above)
 
@@ -503,8 +760,11 @@ It backs up every file it replaces, then:
   The terminal scheme and icon theme are only replaced when the current one is
   not already a Monochrome Day variant, so a dimmer text variant or another icon colour
   survives. Icons stay as they are until `./icons/install.sh` has run.
-- runs the fastfetch, lsd, Neovim and Claude Desktop installers and sets
-  btop's `color_theme`
+- runs the fastfetch, lsd, bat, starship, delta, lazygit, kitty, Alacritty,
+  WezTerm, Ghostty, Helix, GTK, Qt, Discord, Neovim and Claude Desktop
+  installers and sets btop's `color_theme`. The terminal, editor and Qt
+  installers only copy theme files; the include line you added once stays,
+  switch it by hand when the file name differs between rices
 - moves every other rice's LazyVim spec from `~/.config/nvim/lua/plugins/` to
   `~/.config/nvim/rice-off/` (LazyVim loads every spec there and the last
   colorscheme wins); your own specs stay
@@ -521,6 +781,7 @@ The GUI steps it cannot do are printed at the end:
 4. Settings → Wallpaper → a file from `backgrounds/`
 5. Claude Desktop: Ctrl+Shift+T → `cosmic-monochrome`, Appearance → Light
 6. `exec zsh`, restart Neovim (`:Lazy clean` drops plugins only the old specs used)
+7. Obsidian: `./obsidian/install.sh <vault>`; delta: the `[include]` path in `~/.gitconfig`
 
 Skip 1 and 2 when that slot already holds Monochrome Day. The first time on this rice,
 run [Setup](#setup) once for the fonts, icons and cursor.
@@ -547,6 +808,14 @@ puts the Pop cursor back.
 | [lsd](https://github.com/lsd-rs/lsd) | `ls` with icons and colours |
 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | System info |
 | [btop](https://github.com/aristocratos/btop) | Resource monitor |
+| [starship](https://starship.rs/) | Prompt |
+| [bat](https://github.com/sharkdp/bat) | `cat` with syntax highlighting |
+| [delta](https://github.com/dandavison/delta) | git diff pager |
+| [lazygit](https://github.com/jesseduffield/lazygit) | git TUI |
+| [Helix](https://helix-editor.com/) | Editor |
+| [kitty](https://sw.kovidgoyal.net/kitty/), [Alacritty](https://alacritty.org/), [WezTerm](https://wezterm.org/), [Ghostty](https://ghostty.org/) | Other terminals |
+| [qt6ct](https://github.com/trialuser02/qt6ct) | Qt colour scheme |
+| [Vencord](https://vencord.dev/) / [Vesktop](https://github.com/Vencord/Vesktop) | Discord theme host |
 | [cosmic-icon-themes](https://github.com/atraxsrc/cosmic-icon-themes) | Icon pack (Cosmic-MonochromeDay), recolored from [Kanagawa icons](https://github.com/Fausto-Korpsvart/Kanagawa-GKT-Theme/tree/main/icons/Kanagawa) |
 | [Oxygen-Cursors](https://github.com/wo2ni/Oxygen-Cursors) | Cursor, recoloured to the icon colours |
 

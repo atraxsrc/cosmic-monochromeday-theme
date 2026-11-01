@@ -64,6 +64,17 @@ fi
 
 (( $+commands[cosmic-edit] )) && alias edit='cosmic-edit'
 
+# lazygit reads one config file; stack the rice colours (lazygit/monochromeday.yml,
+# installed by ./lazygit/install.sh) on top of your own config.yml
+if (( $+commands[lazygit] )); then
+    _monochromeday_lg="${XDG_CONFIG_HOME:-$HOME/.config}/lazygit"
+    if [[ -f $_monochromeday_lg/monochromeday.yml ]]; then
+        export LG_CONFIG_FILE="$_monochromeday_lg/monochromeday.yml"
+        [[ -f $_monochromeday_lg/config.yml ]] && LG_CONFIG_FILE="$_monochromeday_lg/config.yml,$LG_CONFIG_FILE"
+    fi
+    unset _monochromeday_lg
+fi
+
 if (( $+commands[nvim] )); then
     alias vi='nvim'
     alias vim='nvim'

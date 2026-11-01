@@ -1,0 +1,45 @@
+# MonochromeDay for Ghostty, part of cosmic-monochromeday-theme (MIT).
+# Colours follow the COSMIC Terminal scheme (cosmic-term/).
+#
+# Install: ./ghostty/install.sh puts this in ~/.config/ghostty/themes/, then in
+# ~/.config/ghostty/config:
+#   theme = MonochromeDay
+# or, with the Monochrome half installed too, following COSMIC's Dark / Light toggle:
+#   theme = dark:Monochrome,light:MonochromeDay
+
+background = #E6E6E6
+foreground = #1A1A1A
+
+cursor-color = #5C5C5C
+cursor-text = #E6E6E6
+
+selection-background = #C0C0C0
+selection-foreground = #1A1A1A
+
+split-divider-color = #C0C0C0
+unfocused-split-fill = #E6E6E6
+
+# black
+palette = 0=#E6E6E6
+palette = 8=#ABABAB
+# red
+palette = 1=#424242
+palette = 9=#282828
+# green
+palette = 2=#515151
+palette = 10=#424242
+# yellow
+palette = 3=#5C5C5C
+palette = 11=#515151
+# blue
+palette = 4=#5C5C5C
+palette = 12=#1A1A1A
+# magenta
+palette = 5=#1A1A1A
+palette = 13=#424242
+# cyan
+palette = 6=#5C5C5C
+palette = 14=#515151
+# white
+palette = 7=#1A1A1A
+palette = 15=#1D1D1D
