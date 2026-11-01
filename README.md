@@ -11,6 +11,7 @@ the dark half is [cosmic-monochrome-theme](https://github.com/atraxsrc/cosmic-mo
 ![COSMIC](https://img.shields.io/badge/COSMIC-1.0.0-1a1a1a?style=for-the-badge)
 ![Monochrome Day](https://img.shields.io/badge/Theme-MonochromeDay-616161?style=for-the-badge)
 ![Firefox](https://img.shields.io/badge/Firefox-MonochromeDay-424242?style=for-the-badge&logo=firefox-browser&logoColor=white)
+[![Gallery](https://img.shields.io/badge/Gallery-All_rices-5c5c5c?style=for-the-badge)](https://atraxsrc.github.io/cosmic-rices/)
 ![License](https://img.shields.io/badge/License-MIT-818181?style=for-the-badge)
 
 </div>
