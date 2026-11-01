@@ -10,7 +10,7 @@ SLUG="monochromeday"                   # zsh/<slug>.zsh, nvim/lua/plugins/<slug>
 MODE="light"                        # the COSMIC half this rice fills: dark or light
 RON="MonochromeDay.ron"           # desktop theme in cosmic/
 TERM_RON="MonochromeDay-term.ron" # terminal scheme in cosmic-term/
-BTOP="Monochrome Day"                   # btop/<name>.theme
+BTOP="MonochromeDay"                   # btop/<name>.theme
 
 usage() {
     cat <<EOF
