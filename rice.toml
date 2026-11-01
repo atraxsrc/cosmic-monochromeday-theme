@@ -1,0 +1,6 @@
+name = "Monochrome Day"
+mode = "light"
+theme = "MonochromeDay.ron"
+pair = "monochrome"
+terminal = "MonochromeDay-term.ron"
+btop = "MonochromeDay"
