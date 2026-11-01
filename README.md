@@ -423,7 +423,7 @@ Add `--system` to install to `/usr/share/icons` instead, for every user and the
 login screen (asks for sudo); `--user` is the default.
 
 Wallpapers ship in [`backgrounds/`](backgrounds/), named `monochromeday-<subject>.png`:
-the thirteen subjects every dark rice has, rendered in greys only, the same pictures as Monochrome:
+the thirteen subjects every dark rice has, rendered in greys only, the same pictures as Monochrome with the ink flipped onto paper:
 the Harbor Dark reaper and Hyundai blueprint, the COSMIC astronaut, the samurai,
 sushi switch, geisha, JS mug and neon street from the Tokyo Night set, The Greek
 eagle and ink portrait, and three new scenes: city, panel and tower.
