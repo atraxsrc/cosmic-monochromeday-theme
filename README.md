@@ -130,7 +130,7 @@ There is no hue. Status colours are darker grays, not green / red.
 │   ├── MonochromeDay.conf       # qt5ct / qt6ct colour scheme
 │   └── install.sh
 ├── starship
-│   ├── starship.toml            # prompt, palette colours, clock on the right
+│   ├── starship.toml            # prompt, palette colours
 │   └── install.sh
 ├── telegram
 │   ├── colors.tdesktop-theme    # Telegram Desktop colour scheme (source)
@@ -385,8 +385,7 @@ kitty and Alacritty have no such switch; include the other file instead.
 `starship/starship.toml` is close to the defaults with the palette declared
 once as `[palettes.monochromeday]` and used by name: the directory in ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`,
 the branch in ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151`, ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` for a dirty tree, a ![#515151](https://placehold.co/12x12/515151/515151.png) `#515151` prompt
-character that turns ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242` after a failed command, a dim `HH:MM` clock on
-the right. Modules it does not style keep their defaults, which use the ANSI
+character that turns ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242` after a failed command. Modules it does not style keep their defaults, which use the ANSI
 slots the COSMIC Terminal scheme colours. `zsh/monochromeday.zsh` already runs
 `starship init`. `install.sh` backs up any existing `~/.config/starship.toml`
 to `starship.toml.bak`.
