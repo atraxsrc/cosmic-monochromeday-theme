@@ -42,7 +42,7 @@ flowchart LR
 - [x] `./icons/install.sh` for the **Cosmic-MonochromeDay** icons, `./cosmic/install.sh` for fonts and the terminal look
 - [x] `./zsh/install.sh`, `./lsd/install.sh`, `./fastfetch/install.sh`
 - [x] Cursor: Oxygen-MonochromeDay-Silver
-- [x] Wallpaper: `backgrounds/monochromeday-reaper-skull.png`
+- [x] Wallpaper: `backgrounds/monochromeday-anime.png`
 - [x] Screenshot for the README
 
 ## The baseline every rice shares
