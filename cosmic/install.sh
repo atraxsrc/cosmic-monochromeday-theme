@@ -18,6 +18,6 @@ done
 
 cat <<'EOF'
 
-Done. Needs the Maple fonts and Cosmic-MonochromeDay icons (./icons/install.sh) installed, and the Monochrome Day
+Done. Needs the fonts (./fonts/install.sh) and Cosmic-MonochromeDay icons (./icons/install.sh) installed, and the Monochrome Day
 terminal scheme imported, or COSMIC falls back to its defaults.
 EOF
