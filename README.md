@@ -200,7 +200,7 @@ Firefox and the shell layer do not follow the toggle; those are per-rice files.
 | Where | Setting |
 |-------|---------|
 | Fonts | Interface `Maple Mono Normal`, monospace `Maple Mono Normal NFM` |
-| Icons | Cosmic-MonochromeDay-Silver |
+| Icons | Cosmic-MonochromeDay-Dark |
 | Windows | Minimize / maximize buttons hidden, theme applied to GNOME apps |
 | Terminal | Maple Mono 15 (weights 500 / bold 800 / dim 300), 77% opacity, no header bar, Monochrome Day |
 
@@ -675,13 +675,13 @@ Previews, what the script touches, how to undo it and how the colours are made:
 Icons: **Cosmic-MonochromeDay**, the [Kanagawa icons](https://github.com/Fausto-Korpsvart/Kanagawa-GKT-Theme/tree/main/icons/Kanagawa)
 by Fausto Korpsvart recolored to this palette in
 [cosmic-icon-themes](https://github.com/atraxsrc/cosmic-icon-themes). Folders come in
-three colors: **Silver** ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C` (default), **Graphite** ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242` and **Dark** ![#1A1A1A](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1A1A1A` with light symbols.
+three colors: **Silver** ![#5C5C5C](https://placehold.co/12x12/5c5c5c/5c5c5c.png) `#5C5C5C`, **Graphite** ![#424242](https://placehold.co/12x12/424242/424242.png) `#424242` and **Dark** ![#1A1A1A](https://placehold.co/12x12/1a1a1a/1a1a1a.png) `#1A1A1A` (default) with light symbols.
 
 ![Cosmic-MonochromeDay folder colors](https://raw.githubusercontent.com/atraxsrc/cosmic-icon-themes/main/previews/Cosmic-MonochromeDay.png)
 
 ```bash
-./icons/install.sh                 # Silver folders
-./icons/install.sh --variant Dark  # or Graphite
+./icons/install.sh                   # Dark folders
+./icons/install.sh --variant Silver  # or Graphite
 ```
 
 It downloads the pack from the latest cosmic-icon-themes release, checks its SHA256,
